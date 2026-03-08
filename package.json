@@ -1,0 +1,66 @@
+{
+  "version": "1.0.0",
+  "name": "migpt-claw",
+  "description": "小米小爱音箱 OpenClaw Channel 插件",
+  "keywords": [
+    "openclaw",
+    "xiaomi",
+    "mi-gpt",
+    "mico",
+    "channel"
+  ],
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch"
+  },
+  "files": [
+    "dist",
+    "src",
+    "index.ts",
+    "skills",
+    "openclaw.plugin.json",
+    "tsconfig.json"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "import": "./dist/*.js"
+    }
+  },
+  "openclaw": {
+    "extensions": [
+      "./index.ts"
+    ]
+  },
+  "dependencies": {
+    "axios": "^1.13.6",
+    "node-fetch": "^3.3.2",
+    "pako": "^2.1.0"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.9.36",
+    "@types/node": "^22.14.0",
+    "@types/pako": "^2.0.4",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.2"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "sideEffects": false,
+  "license": "MIT",
+  "author": {
+    "name": "Leon",
+    "email": "leon@example.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leon/migpt-claw.git"
+  }
+}

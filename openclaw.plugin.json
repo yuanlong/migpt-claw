@@ -1,0 +1,112 @@
+{
+  "id": "migpt-claw",
+  "name": "MiGPT Channel",
+  "description": "小米小爱音箱 OpenClaw Channel 插件",
+  "channels": ["migpt"],
+  "skills": ["./skills/migpt-volume"],
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "userId": {
+        "type": "string",
+        "description": "小米账号 ID"
+      },
+      "password": {
+        "type": "string",
+        "description": "小米账号密码"
+      },
+      "passToken": {
+        "type": "string",
+        "description": "小米 PassToken（可选，如果提供则不需要密码）"
+      },
+      "devices": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "设备名称列表"
+      },
+      "systemPrompt": {
+        "type": "string",
+        "description": "系统提示词，用于定制 AI 在音箱场景下的行为规范"
+      },
+      "heartbeat": {
+        "type": "number",
+        "description": "消息轮询间隔（毫秒）",
+        "default": 1000
+      },
+      "speakerControl": {
+        "type": "string",
+        "enum": ["mina", "miot"],
+        "description": "音箱控制方式"
+      },
+      "announceOnStart": {
+        "type": "boolean",
+        "description": "启动时是否播报上线文案",
+        "default": false
+      },
+      "startupMessage": {
+        "type": "string",
+        "description": "上线播报文案",
+        "default": "您的小龙虾已上线，随时为您服务"
+      },
+      "acknowledgeOnReceive": {
+        "type": "boolean",
+        "description": "收到消息时是否回复收到",
+        "default": false
+      },
+      "receiveMessage": {
+        "type": "string",
+        "description": "收到消息回复文案",
+        "default": "收到，处理中"
+      }
+    }
+  },
+  "uiHints": {
+    "userId": {
+      "label": "小米账号 ID",
+      "placeholder": "请输入小米账号"
+    },
+    "password": {
+      "label": "密码",
+      "sensitive": true,
+      "placeholder": "请输入小米账号密码"
+    },
+    "passToken": {
+      "label": "PassToken",
+      "sensitive": true,
+      "placeholder": "可选，如果提供则不需要密码"
+    },
+    "devices": {
+      "label": "设备列表",
+      "placeholder": "客厅音箱，卧室音箱"
+    },
+    "systemPrompt": {
+      "label": "系统提示词",
+      "placeholder": "自定义 AI 在音箱场景下的行为规范"
+    },
+    "heartbeat": {
+      "label": "轮询间隔",
+      "placeholder": "1000"
+    },
+    "speakerControl": {
+      "label": "控制方式",
+      "placeholder": "mina 或 miot"
+    },
+    "announceOnStart": {
+      "label": "启动时播报",
+      "description": "启用后，音箱启动时会播报上线文案"
+    },
+    "startupMessage": {
+      "label": "上线文案",
+      "placeholder": "您的小龙虾已上线，随时为您服务"
+    },
+    "acknowledgeOnReceive": {
+      "label": "收到消息回复",
+      "description": "启用后，收到消息时会播放提示音"
+    },
+    "receiveMessage": {
+      "label": "回复文案",
+      "placeholder": "收到，处理中"
+    }
+  }
+}
